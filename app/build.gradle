@@ -1,6 +1,8 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'com.google.dagger.hilt.android'
 }
 
 android {
@@ -48,6 +50,11 @@ android {
 
 dependencies {
 
+    implementation project(':commons')
+    implementation project(':data')
+    implementation project(':domain')
+    implementation project(':remote')
+
     // Android
     implementation "androidx.core:core-ktx:$coreKtxVersion"
     implementation "androidx.appcompat:appcompat:$appCompatVersion"
@@ -58,6 +65,11 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycleVersion"
     implementation "androidx.activity:activity-compose:$activityVersion"
     debugImplementation "androidx.compose.ui:ui-tooling:$composeVersion"
+
+    // Third-party libraries
+    implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    implementation "com.google.dagger:hilt-android:$hiltVersion"
+    kapt "com.google.dagger:hilt-compiler:$hiltVersion"
 
     // Testing
     testImplementation "junit:junit:$junitVersion"

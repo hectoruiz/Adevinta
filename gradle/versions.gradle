@@ -27,6 +27,7 @@ ext {
     okHttpVersion = "4.10.0"
     retrofitVersion = "2.9.0"
     moshiVersion = "1.14.0"
+    hiltVersion = "2.44"
 
     // Testing Libraries
     junitVersion = "4.13.2"
