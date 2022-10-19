@@ -1,8 +1,9 @@
 package hector.ruiz.domain.repositories
 
-import hector.ruiz.domain.entities.User
+import hector.ruiz.commons.ResponseResult
+import hector.ruiz.domain.entities.UserResponse
 
 interface UserRepository {
 
-    fun getUsers(amount: Int): List<User>
+    fun getUsers(pageNumber: Int): ResponseResult<UserResponse>
 }

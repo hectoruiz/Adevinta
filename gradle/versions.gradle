@@ -23,6 +23,11 @@ ext {
     lifecycleVersion = "2.5.1"
     activityVersion = "1.6.0"
 
+    // Third-party libraries
+    okHttpVersion = "4.10.0"
+    retrofitVersion = "2.9.0"
+    moshiVersion = "1.14.0"
+
     // Testing Libraries
     junitVersion = "4.13.2"
     mockkVersion = "1.12.0"
