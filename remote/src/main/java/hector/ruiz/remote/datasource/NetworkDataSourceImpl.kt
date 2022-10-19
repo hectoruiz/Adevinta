@@ -6,10 +6,12 @@ import hector.ruiz.domain.entities.UserResponse
 import hector.ruiz.remote.api.ApiClient
 import hector.ruiz.remote.api.ApiService
 import retrofit2.create
+import javax.inject.Inject
 
-class NetworkDataSourceImpl : NetworkDataSource {
+class NetworkDataSourceImpl @Inject constructor(apiClient: ApiClient) :
+    NetworkDataSource {
 
-    private val apiService: ApiService = ApiClient().retrofit.create()
+    private val apiService = apiClient.retrofit.create<ApiService>()
 
     override fun getUsers(pageNumber: Int): ResponseResult<UserResponse> {
         return apiService.getCharacters(pageNumber, RESULTS, SEED).let {

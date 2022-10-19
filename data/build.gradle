@@ -6,4 +6,7 @@ dependencies {
 
     implementation project(':domain')
     implementation project(':commons')
+
+    // Third-party libraries
+    implementation "com.google.dagger:hilt-core:$rootProject.hiltVersion"
 }
