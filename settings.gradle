@@ -9,5 +9,5 @@ rootProject.name = "Adevinta"
 include ':app'
 include ':domain'
 include ':data'
-include ':remote'
+include ':network'
 include ':commons'

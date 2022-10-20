@@ -5,5 +5,5 @@ import hector.ruiz.domain.entities.UserResponse
 
 interface UserRepository {
 
-    fun getUsers(pageNumber: Int): ResponseResult<UserResponse>
+    suspend fun getUsers(pageNumber: Int): ResponseResult<UserResponse>
 }

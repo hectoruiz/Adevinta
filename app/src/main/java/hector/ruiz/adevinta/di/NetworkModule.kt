@@ -7,7 +7,7 @@ import dagger.hilt.components.SingletonComponent
 import hector.ruiz.data.datasources.NetworkDataSource
 import hector.ruiz.data.repositories.UserRepositoryImpl
 import hector.ruiz.domain.repositories.UserRepository
-import hector.ruiz.remote.datasource.NetworkDataSourceImpl
+import hector.ruiz.network.datasource.NetworkDataSourceImpl
 
 @Module
 @InstallIn(SingletonComponent::class)

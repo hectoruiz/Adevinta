@@ -4,8 +4,12 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import hector.ruiz.remote.api.ApiClient
+import hector.ruiz.network.api.ApiClient
+import hector.ruiz.network.api.ApiService
+import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.Dispatchers
 import retrofit2.Retrofit
+import retrofit2.create
 import javax.inject.Singleton
 
 @Module
@@ -17,4 +21,13 @@ object ApplicationModule {
     fun providerApiClient(apiClient: ApiClient): Retrofit {
         return apiClient.retrofit
     }
+
+    @Provides
+    @Singleton
+    fun providerApiService(retrofit: Retrofit): ApiService {
+        return retrofit.create()
+    }
+
+    @Provides
+    fun providesDefaultDispatcher(): CoroutineDispatcher = Dispatchers.Default
 }
