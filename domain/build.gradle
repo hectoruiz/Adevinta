@@ -8,6 +8,7 @@ dependencies {
 
     // Third-party libraries
     implementation "com.google.dagger:hilt-core:$rootProject.hiltVersion"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$rootProject.coroutinesVersion"
 
     // Testing
     testImplementation "junit:junit:$junitVersion"
