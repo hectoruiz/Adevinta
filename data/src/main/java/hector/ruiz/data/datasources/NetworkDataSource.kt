@@ -5,5 +5,5 @@ import hector.ruiz.domain.entities.UserResponse
 
 interface NetworkDataSource {
 
-    fun getUsers(pageNumber: Int): ResponseResult<UserResponse>
+    suspend fun getUsers(pageNumber: Int): ResponseResult<UserResponse>
 }
