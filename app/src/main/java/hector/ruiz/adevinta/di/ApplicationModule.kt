@@ -18,7 +18,13 @@ object ApplicationModule {
 
     @Provides
     @Singleton
-    fun providerApiClient(apiClient: ApiClient): Retrofit {
+    fun providerApiClient(): ApiClient {
+        return ApiClient()
+    }
+
+    @Provides
+    @Singleton
+    fun providerRetrofit(apiClient: ApiClient): Retrofit {
         return apiClient.retrofit
     }
 
@@ -29,5 +35,5 @@ object ApplicationModule {
     }
 
     @Provides
-    fun providesDefaultDispatcher(): CoroutineDispatcher = Dispatchers.Default
+    fun providesDefaultDispatcher(): CoroutineDispatcher = Dispatchers.IO
 }

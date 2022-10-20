@@ -70,6 +70,7 @@ dependencies {
     implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
     implementation "com.google.dagger:hilt-android:$hiltVersion"
     kapt "com.google.dagger:hilt-compiler:$hiltVersion"
+    implementation "io.coil-kt:coil-compose:$coilVersion"
 
     // Testing
     testImplementation "junit:junit:$junitVersion"
