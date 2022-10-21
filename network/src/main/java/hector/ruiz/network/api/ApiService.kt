@@ -7,7 +7,7 @@ import retrofit2.http.Query
 
 interface ApiService {
 
-    @GET("api/")
+    @GET("api/?exc=dob,login,id")
     suspend fun getUsers(
         @Query(PAGE_NUMBER) pageNumber: Int,
         @Query(RESULTS) results: Int,

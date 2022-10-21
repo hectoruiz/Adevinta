@@ -1,9 +1,13 @@
 package hector.ruiz.adevinta.ui.composables
 
+import android.net.Uri
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.Icon
 import androidx.compose.material.MaterialTheme
@@ -21,15 +25,43 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import coil.compose.rememberAsyncImagePainter
 import coil.request.ImageRequest
+import com.squareup.moshi.JsonAdapter
+import com.squareup.moshi.Moshi
 import hector.ruiz.adevinta.R
 import hector.ruiz.domain.entities.User
 import java.text.SimpleDateFormat
 import java.util.*
 
 @Composable
+fun UserList(userList: List<User>, onItemClicked: (String) -> Unit, onRemoveUser: (User) -> Unit) {
+
+    LazyColumn(
+        content = {
+            items(userList.size) { index ->
+                Box(modifier =
+                Modifier.clickable {
+                    val moshi = Moshi.Builder().build()
+                    val jsonAdapter: JsonAdapter<User> =
+                        moshi.adapter(User::class.java)
+                    val userJSON =
+                        Uri.encode(jsonAdapter.toJson(userList[index]))
+                    onItemClicked(userJSON)
+                }) {
+                    Item(
+                        userList[index],
+                        painterResource(id = R.drawable.ic_delete),
+                        stringResource(id = R.string.picture_description)) {
+                        onRemoveUser(userList[index])
+                    }
+                }
+            }
+        })
+}
+
+@Composable
 fun UserInfo(
     user: User?,
-    modifier: Modifier? = Modifier
+    modifier: Modifier? = Modifier,
 ) {
 
     val painter = rememberAsyncImagePainter(ImageRequest.Builder(LocalContext.current)
@@ -102,7 +134,6 @@ fun UserDetail(user: User?) {
         modifier = Modifier
             .size(50.dp)
             .padding(top = dimensionResource(id = R.dimen.big_padding_parent)))
-
 }
 
 private const val FEMALE = "female"
