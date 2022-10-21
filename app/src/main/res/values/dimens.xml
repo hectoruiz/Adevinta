@@ -1,0 +1,9 @@
+<resources>
+    <dimen name="big_padding_parent">16dp</dimen>
+    <dimen name="small_padding_parent">8dp</dimen>
+    <dimen name="picture_elevation">4dp</dimen>
+    <dimen name="picture_border">2dp</dimen>
+    <dimen name="picture_size">100dp</dimen>
+    <dimen name="progress_size">50dp</dimen>
+    <dimen name="gender_size">50dp</dimen>
+</resources>

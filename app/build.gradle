@@ -9,7 +9,7 @@ android {
     compileSdk rootProject.compileSdkVersion
 
     defaultConfig {
-        applicationId "hector.ruiz.photoapp"
+        applicationId "hector.ruiz.adevinta"
         minSdk rootProject.minSdkVersion
         targetSdk rootProject.targetSdkVersion
         versionCode rootProject.versionCodeVersion
@@ -65,11 +65,15 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycleVersion"
     implementation "androidx.activity:activity-compose:$activityVersion"
     debugImplementation "androidx.compose.ui:ui-tooling:$composeVersion"
+    implementation "androidx.navigation:navigation-compose:$navVersion"
+    implementation "androidx.hilt:hilt-navigation-compose:$hiltNavComposeVersion"
+    implementation "com.squareup.moshi:moshi:$moshiVersion"
 
     // Third-party libraries
     implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
     implementation "com.google.dagger:hilt-android:$hiltVersion"
     kapt "com.google.dagger:hilt-compiler:$hiltVersion"
+    implementation "io.coil-kt:coil-compose:$coilVersion"
 
     // Testing
     testImplementation "junit:junit:$junitVersion"

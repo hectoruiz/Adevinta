@@ -1,3 +1,14 @@
 <resources>
+    <!-- App -->
     <string name="app_name">Adevinta</string>
+    <string name="app_title">Users List</string>
+
+    <!-- Content description -->
+    <string name="picture_description">Picture</string>
+    <string name="gender_description">Gender</string>
+
+    <string name="since_registered">Since</string>
+
+    <!-- Transactions handling -->
+    <string name="remove_success">User removed successfully.</string>
 </resources>
