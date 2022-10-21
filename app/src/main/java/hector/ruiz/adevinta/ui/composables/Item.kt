@@ -19,7 +19,7 @@ fun Item(
     user: User?,
     icon: Painter?,
     contentDescription: String?,
-    onRemoveClick: ((User?) -> Unit)?,
+    onRemoveClick: ((User?) -> Unit)?
 ) {
 
     AdevintaTheme {

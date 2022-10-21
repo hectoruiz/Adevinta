@@ -23,6 +23,8 @@ ext {
     lifecycleVersion = "2.5.1"
     activityVersion = "1.6.0"
     coroutinesVersion = "1.6.4"
+    navVersion = "2.5.2"
+    hiltNavComposeVersion = "1.0.0"
 
     // Third-party libraries
     okHttpVersion = "4.10.0"

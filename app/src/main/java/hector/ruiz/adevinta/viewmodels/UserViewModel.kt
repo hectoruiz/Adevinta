@@ -12,7 +12,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 data class ListUiState(
-    val userList: List<User> = emptyList(),
+    val userList: List<User> = listOf(),
     val loading: Boolean = true,
     val removedUser: Boolean = false,
 )
@@ -26,8 +26,8 @@ class UserViewModel @Inject constructor(
         throwable.printStackTrace()
     }
 
-    private val _uiState = mutableStateOf(ListUiState())
-    val uiState: State<ListUiState> = _uiState
+    private val _uiListState = mutableStateOf(ListUiState())
+    val uiListState: State<ListUiState> = _uiListState
 
     private val _pageNumber = mutableStateOf(1)
 
@@ -36,17 +36,17 @@ class UserViewModel @Inject constructor(
     }
 
     fun removeUser(user: User) {
-        val auxList = _uiState.value.userList.toMutableList()
+        val auxList = _uiListState.value.userList.toMutableList()
         if (auxList.remove(user)) {
-            _uiState.value = _uiState.value.copy(userList = auxList, removedUser = true)
-        } else _uiState.value = _uiState.value.copy(removedUser = false)
+            _uiListState.value = _uiListState.value.copy(userList = auxList, removedUser = true)
+        } else _uiListState.value = _uiListState.value.copy(removedUser = false)
     }
 
     private fun getUser() {
         viewModelScope.launch(exceptionHandler) {
-            _uiState.value = _uiState.value.copy(loading = true)
+            _uiListState.value = _uiListState.value.copy(loading = true)
             getUsersUseCase(_pageNumber.value).data?.let {
-                _uiState.value = _uiState.value.copy(userList = it, loading = false)
+                _uiListState.value = _uiListState.value.copy(userList = it, loading = false)
                 _pageNumber.value = _pageNumber.value.plus(1)
             }
         }

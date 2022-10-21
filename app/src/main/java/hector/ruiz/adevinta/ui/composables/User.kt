@@ -18,6 +18,8 @@ import coil.compose.rememberAsyncImagePainter
 import coil.request.ImageRequest
 import hector.ruiz.adevinta.R
 import hector.ruiz.domain.entities.User
+import java.text.SimpleDateFormat
+import java.util.*
 
 @Composable
 fun UserInfo(user: User?) {
@@ -53,5 +55,26 @@ fun UserInfo(user: User?) {
     Text(
         style = MaterialTheme.typography.h2,
         text = "${user?.phone}"
+    )
+}
+
+@Composable
+fun UserDetail(user: User?) {
+
+    Text(
+        style = MaterialTheme.typography.h2,
+        text = "${user?.location?.street?.name} ${user?.location?.street?.number} - " +
+                "${user?.location?.city} - ${user?.location?.state}",
+        modifier = Modifier.padding(
+            vertical = dimensionResource(id = R.dimen.small_padding_parent)
+        )
+    )
+    val parser = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss", Locale.getDefault())
+    val formatter = SimpleDateFormat("dd.MM.yyyy - HH:mm", Locale.getDefault())
+    val registeredDate =
+        user?.registered?.date?.let { date -> parser.parse(date)?.let { formatter.format(it) } }
+    Text(
+        style = MaterialTheme.typography.h3,
+        text = "${stringResource(id = R.string.since_registered)}: $registeredDate"
     )
 }

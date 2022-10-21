@@ -5,7 +5,7 @@
 
     <!-- Content description -->
     <string name="picture_description">Picture</string>
+    <string name="gender_description">Gender</string>
 
-    <!-- Transactions handling -->
-    <string name="removed_user">User removed</string>
+    <string name="since_registered">Since</string>
 </resources>
