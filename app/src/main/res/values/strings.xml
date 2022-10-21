@@ -1,12 +1,15 @@
 <resources>
     <!-- App -->
     <string name="app_name">Adevinta</string>
-    <string name="app_title">Users List</string>
+    <string name="list_title">Users List</string>
+    <string name="detail_title">User Detail</string>
 
     <!-- Content description -->
     <string name="picture_description">Picture</string>
     <string name="gender_description">Gender</string>
+    <string name="more_users_description">More Users</string>
 
+    <!-- Content -->
     <string name="since_registered">Since</string>
 
     <!-- Transactions handling -->
