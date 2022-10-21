@@ -32,7 +32,7 @@ class UserViewModel @Inject constructor(
     private val _pageNumber = mutableStateOf(1)
 
     init {
-        getUser()
+        getUsers()
     }
 
     fun removeUser(user: User) {
@@ -42,11 +42,13 @@ class UserViewModel @Inject constructor(
         } else _uiListState.value = _uiListState.value.copy(removedUser = false)
     }
 
-    private fun getUser() {
+    fun getUsers() {
         viewModelScope.launch(exceptionHandler) {
             _uiListState.value = _uiListState.value.copy(loading = true)
             getUsersUseCase(_pageNumber.value).data?.let {
-                _uiListState.value = _uiListState.value.copy(userList = it, loading = false)
+                _uiListState.value =
+                    _uiListState.value.copy(userList = _uiListState.value.userList + it,
+                        loading = false)
                 _pageNumber.value = _pageNumber.value.plus(1)
             }
         }

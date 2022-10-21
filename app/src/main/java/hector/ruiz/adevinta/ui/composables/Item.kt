@@ -36,7 +36,7 @@ fun Item(
                     .fillMaxWidth(),
                     horizontalAlignment = Alignment.CenterHorizontally)
                 {
-                    UserInfo(user = user)
+                    UserInfo(user = user, null)
                 }
                 icon?.let {
                     IconButton(

@@ -22,6 +22,7 @@ import com.squareup.moshi.Moshi
 import hector.ruiz.adevinta.R
 import hector.ruiz.adevinta.displaySnackBarShort
 import hector.ruiz.adevinta.ui.composables.CircularProgress
+import hector.ruiz.adevinta.ui.composables.FABButton
 import hector.ruiz.adevinta.ui.composables.Item
 import hector.ruiz.adevinta.ui.theme.AdevintaTheme
 import hector.ruiz.adevinta.viewmodels.UserViewModel
@@ -38,7 +39,7 @@ fun UserListScreen(navController: NavHostController) {
 
         Scaffold(
             topBar = {
-                TopAppBar(title = { Text(text = stringResource(id = R.string.app_title)) })
+                TopAppBar(title = { Text(text = stringResource(id = R.string.list_title)) })
             },
             snackbarHost = { SnackbarHost(snackbarHostState) },
             content = { paddingValues ->
@@ -77,6 +78,9 @@ fun UserListScreen(navController: NavHostController) {
                         userViewModel.showedMessage()
                     }
                 }
+            },
+            floatingActionButton = {
+                FABButton { userViewModel.getUsers() }
             }
         )
     }
