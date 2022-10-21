@@ -8,4 +8,7 @@
     <string name="gender_description">Gender</string>
 
     <string name="since_registered">Since</string>
+
+    <!-- Transactions handling -->
+    <string name="remove_success">User removed successfully.</string>
 </resources>

@@ -14,6 +14,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.style.TextAlign
 import coil.compose.rememberAsyncImagePainter
 import coil.request.ImageRequest
 import hector.ruiz.adevinta.R
@@ -67,7 +68,8 @@ fun UserDetail(user: User?) {
                 "${user?.location?.city} - ${user?.location?.state}",
         modifier = Modifier.padding(
             vertical = dimensionResource(id = R.dimen.small_padding_parent)
-        )
+        ),
+        textAlign = TextAlign.Center
     )
     val parser = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss", Locale.getDefault())
     val formatter = SimpleDateFormat("dd.MM.yyyy - HH:mm", Locale.getDefault())

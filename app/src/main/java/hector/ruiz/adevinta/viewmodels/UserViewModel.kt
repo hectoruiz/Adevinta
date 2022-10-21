@@ -51,4 +51,8 @@ class UserViewModel @Inject constructor(
             }
         }
     }
+
+    fun showedMessage() {
+        _uiListState.value = _uiListState.value.copy(removedUser = false)
+    }
 }
